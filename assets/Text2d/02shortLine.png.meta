@@ -6,7 +6,7 @@
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
   "subMetas": {
-    "02短线": {
+    "02shortLine": {
       "ver": "1.0.4",
       "uuid": "229acba7-f551-4519-b848-f90bcfabdaf8",
       "rawTextureUuid": "1da2e0cc-34e5-4508-8eb2-34d3aaa369dc",
@@ -21,10 +21,10 @@
       "height": 5,
       "rawWidth": 19,
       "rawHeight": 5,
-      "borderTop": 0,
-      "borderBottom": 0,
-      "borderLeft": 0,
-      "borderRight": 0,
+      "borderTop": 2.5,
+      "borderBottom": 2.5,
+      "borderLeft": 4.5,
+      "borderRight": 4.5,
       "subMetas": {}
     }
   }
