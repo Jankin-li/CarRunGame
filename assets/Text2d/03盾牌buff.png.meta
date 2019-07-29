@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "48adb3b9-8b87-42b3-b48e-48529bd213f5",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "03盾牌buff": {
+      "ver": "1.0.4",
+      "uuid": "df4b0df2-409e-4189-9ccd-b4f10be7badb",
+      "rawTextureUuid": "48adb3b9-8b87-42b3-b48e-48529bd213f5",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 102,
+      "height": 56,
+      "rawWidth": 102,
+      "rawHeight": 56,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

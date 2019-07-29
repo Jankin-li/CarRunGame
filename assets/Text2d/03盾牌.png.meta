@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "7acb40ea-ca5f-4887-aab8-2cfab44b6a9d",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "03盾牌": {
+      "ver": "1.0.4",
+      "uuid": "77c4fb5d-fce5-41a2-bf97-4adb106d8f2d",
+      "rawTextureUuid": "7acb40ea-ca5f-4887-aab8-2cfab44b6a9d",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 91,
+      "height": 87,
+      "rawWidth": 91,
+      "rawHeight": 87,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

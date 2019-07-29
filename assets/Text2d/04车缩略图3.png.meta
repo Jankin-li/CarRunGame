@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "31e9fdc5-0a6c-4232-814b-069270269dc7",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "04车缩略图3": {
+      "ver": "1.0.4",
+      "uuid": "6912e8bb-97f4-4532-ad9f-e3a8461ce093",
+      "rawTextureUuid": "31e9fdc5-0a6c-4232-814b-069270269dc7",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 139,
+      "height": 139,
+      "rawWidth": 139,
+      "rawHeight": 139,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

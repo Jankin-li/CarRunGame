@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "06ba3d64-512e-48ee-b84f-83a31a7da2fd",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "04游戏结束效果图": {
+      "ver": "1.0.4",
+      "uuid": "d3380587-c7d9-4a8c-a505-ae536841df63",
+      "rawTextureUuid": "06ba3d64-512e-48ee-b84f-83a31a7da2fd",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 720,
+      "height": 1280,
+      "rawWidth": 720,
+      "rawHeight": 1280,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

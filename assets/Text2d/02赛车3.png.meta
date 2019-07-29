@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "f375d5c1-3e91-4bdd-a495-62f4e57b3fea",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "02赛车3": {
+      "ver": "1.0.4",
+      "uuid": "00ecee7d-2ec3-4c5c-ad1b-99723ee274bb",
+      "rawTextureUuid": "f375d5c1-3e91-4bdd-a495-62f4e57b3fea",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 0,
+      "offsetY": 0,
+      "trimX": 0,
+      "trimY": 0,
+      "width": 189,
+      "height": 522,
+      "rawWidth": 189,
+      "rawHeight": 522,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}
