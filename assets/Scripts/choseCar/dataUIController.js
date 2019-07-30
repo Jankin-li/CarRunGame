@@ -23,16 +23,13 @@ cc.Class({
         this.costNumber.string = cost;
 
         //更新属性条
-        this.maxSpeedBar.progress = maxSpeed / 1000;
+        this.maxSpeedBar.progress = maxSpeed / 500;
         this.displacementBar.progress = disPlaceMent / 10;
         this.acelerationBar.progress = aceleration / 10;
     },
 
     // LIFE-CYCLE CALLBACKS:
-
-    // onLoad () {},
-
-    start() {
+    onLoad() {
         cc.director.on('theProperties', this.setTheProperties, this);
     },
 

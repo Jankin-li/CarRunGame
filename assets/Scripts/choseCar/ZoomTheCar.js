@@ -1,39 +1,39 @@
 var carsData = [{
     nameT: '基础款',
-    maxSpeed: 500,
-    displacement: 2.0,
-    acelerationTime: 3.38,
+    maxSpeed: 240,
+    displacement: 2.5,
+    acelerationTime: 8.36,
     cost: 300,
 }, {
-    nameT: '赛车中的小火鸡',
-    maxSpeed: 600,
-    displacement: 4.0,
-    acelerationTime: 2.38,
-    cost: 400,
+    nameT: '跑车款',
+    maxSpeed: 280,
+    displacement: 3.0,
+    acelerationTime: 6.47,
+    cost: 25000,
 }, {
-    nameT: '赛车里的拖拉机',
-    maxSpeed: 700,
-    displacement: 5.0,
-    acelerationTime: 3.224,
-    cost: 500,
+    nameT: '超级款',
+    maxSpeed: 320,
+    displacement: 4.5,
+    acelerationTime: 4.49,
+    cost: 47000,
 }, {
-    nameT: '赛车中的战斗机',
-    maxSpeed: 800,
-    displacement: 9.0,
-    acelerationTime: 5.38,
-    cost: 550,
+    nameT: '梦幻款',
+    maxSpeed: 380,
+    displacement: 6.0,
+    acelerationTime: 3.34,
+    cost: 62000,
 }, {
-    nameT: '王中王',
-    maxSpeed: 900,
+    nameT: '做梦款',
+    maxSpeed: 400,
     displacement: 7.0,
-    acelerationTime: 9.38,
-    cost: 560,
+    acelerationTime: 3.03,
+    cost: 80000,
 }, {
-    nameT: '兽中兽',
-    maxSpeed: 1000,
+    nameT: '大王款',
+    maxSpeed: 450,
     displacement: 8.0,
-    acelerationTime: 5.38,
-    cost: 600,
+    acelerationTime: 2.50,
+    cost: 100000,
 }];//json对象数组 用于存储对应的车的数据
 
 
@@ -66,6 +66,12 @@ cc.Class({
     },
     onLoad() {
         this._animation = this.getComponent(cc.Animation);
+
+    },
+
+    start() {
+        this.index = 0;
+        this.sentMassageToUI();
     },
 
     preOne() {
@@ -83,12 +89,14 @@ cc.Class({
         this._animation.play('zoomTheCarRight');
         this.sentMassageToUI();
     },
+
+    //发送消息方法
     sentMassageToUI() {
         cc.director.emit('theProperties', carsData[this.index].maxSpeed,
             carsData[this.index].displacement,
             carsData[this.index].acelerationTime,
             carsData[this.index].nameT,
-            carsData[this.index].cost
+            carsData[this.index].cost,
         );
     }
 });
