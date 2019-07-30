@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.32042795103584837,
-      "y": 0.32042795103584837,
+      "x": 0.43149882177715554,
+      "y": 0.43149882177715554,
       "z": 1
     },
     "_quat": {
@@ -69,9 +69,6 @@
       },
       {
         "__id__": 5
-      },
-      {
-        "__id__": 99
       }
     ],
     "_active": true,
@@ -269,13 +266,16 @@
       },
       {
         "__id__": 79
+      },
+      {
+        "__id__": 98
       }
     ],
     "_active": true,
     "_level": 1,
     "_components": [
       {
-        "__id__": 98
+        "__id__": 100
       }
     ],
     "_prefab": null,
@@ -679,7 +679,7 @@
   },
   {
     "__type__": "cc.Node",
-    "_name": "button",
+    "_name": "Subbutton",
     "_objFlags": 0,
     "_parent": {
       "__id__": 5
@@ -710,7 +710,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 360,
+      "width": 470,
       "height": 150
     },
     "_anchorPoint": {
@@ -777,7 +777,7 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 475,
+      "width": 470,
       "height": 150
     },
     "_anchorPoint": {
@@ -948,7 +948,7 @@
       "y": 0
     },
     "_fillStart": 0,
-    "_fillRange": 0,
+    "_fillRange": 1,
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
@@ -965,8 +965,8 @@
     "alignMode": 0,
     "_target": null,
     "_alignFlags": 45,
-    "_left": -57.5,
-    "_right": -57.5,
+    "_left": 0,
+    "_right": 0,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": 0,
@@ -2261,8 +2261,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 238.29000000000002,
-      "y": -172,
+      "x": 238.2900000000002,
+      "y": -171.9999999999999,
       "z": 0
     },
     "_scale": {
@@ -2322,10 +2322,10 @@
     "_target": null,
     "_alignFlags": 34,
     "_left": 0,
-    "_right": 45,
+    "_right": 44.999999999999815,
     "_top": 0,
     "_bottom": 0,
-    "_verticalCenter": -172,
+    "_verticalCenter": -171.9999999999999,
     "_horizontalCenter": -150,
     "_isAbsLeft": true,
     "_isAbsRight": true,
@@ -2376,8 +2376,8 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 274.98,
-      "y": -262,
+      "x": 274.9799999999998,
+      "y": -261.99999999999994,
       "z": 0
     },
     "_scale": {
@@ -2437,10 +2437,10 @@
     "_target": null,
     "_alignFlags": 34,
     "_left": 0,
-    "_right": 45,
+    "_right": 45.0000000000002,
     "_top": 0,
     "_bottom": 0,
-    "_verticalCenter": -262,
+    "_verticalCenter": -261.99999999999994,
     "_horizontalCenter": -150,
     "_isAbsLeft": true,
     "_isAbsRight": true,
@@ -2491,7 +2491,7 @@
     },
     "_position": {
       "__type__": "cc.Vec3",
-      "x": 266.075,
+      "x": 266.07500000000005,
       "y": -352,
       "z": 0
     },
@@ -2552,7 +2552,7 @@
     "_target": null,
     "_alignFlags": 34,
     "_left": 0,
-    "_right": 45,
+    "_right": 44.99999999999996,
     "_top": 0,
     "_bottom": 0,
     "_verticalCenter": -352,
@@ -3938,50 +3938,22 @@
     "_id": "6clGoIxiBItqeizJDFel/b"
   },
   {
-    "__type__": "cc.Sprite",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 5
-    },
-    "_enabled": true,
-    "_srcBlendFactor": 770,
-    "_dstBlendFactor": 771,
-    "_spriteFrame": {
-      "__uuid__": "e2b455f9-5462-4ddf-9b0f-2cf549bd2805"
-    },
-    "_type": 0,
-    "_sizeMode": 1,
-    "_fillType": 0,
-    "_fillCenter": {
-      "__type__": "cc.Vec2",
-      "x": 0,
-      "y": 0
-    },
-    "_fillStart": 0,
-    "_fillRange": 0,
-    "_isTrimmedMode": true,
-    "_state": 0,
-    "_atlas": null,
-    "_id": "bckUxNofJJQYtYhyaJEubX"
-  },
-  {
     "__type__": "cc.Node",
-    "_name": "02选择赛车效果图",
+    "_name": "UIManager",
     "_objFlags": 0,
     "_parent": {
-      "__id__": 2
+      "__id__": 5
     },
     "_children": [],
-    "_active": false,
-    "_level": 1,
+    "_active": true,
+    "_level": 2,
     "_components": [
       {
-        "__id__": 100
+        "__id__": 99
       }
     ],
     "_prefab": null,
-    "_opacity": 124.185,
+    "_opacity": 255,
     "_color": {
       "__type__": "cc.Color",
       "r": 255,
@@ -3991,8 +3963,8 @@
     },
     "_contentSize": {
       "__type__": "cc.Size",
-      "width": 720,
-      "height": 1280
+      "width": 0,
+      "height": 0
     },
     "_anchorPoint": {
       "__type__": "cc.Vec2",
@@ -4023,20 +3995,54 @@
     "_skewX": 0,
     "_skewY": 0,
     "groupIndex": 0,
-    "_id": "cewIgNma5Lla/4AI5Ve4sY"
+    "_id": "23u5/RRsJM96+loujlwDTe"
+  },
+  {
+    "__type__": "240bbygCUFLGbD51oAejcIz",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 98
+    },
+    "_enabled": true,
+    "maxSpeedBar": {
+      "__id__": 32
+    },
+    "displacementBar": {
+      "__id__": 42
+    },
+    "acelerationBar": {
+      "__id__": 52
+    },
+    "maxSpeedLabel": {
+      "__id__": 55
+    },
+    "displacementLabel": {
+      "__id__": 58
+    },
+    "acelerationLabel": {
+      "__id__": 61
+    },
+    "nameLabel": {
+      "__id__": 96
+    },
+    "costNumber": {
+      "__id__": 68
+    },
+    "_id": "b4j+PYsOVEDJs3R4dznYEZ"
   },
   {
     "__type__": "cc.Sprite",
     "_name": "",
     "_objFlags": 0,
     "node": {
-      "__id__": 99
+      "__id__": 5
     },
     "_enabled": true,
     "_srcBlendFactor": 770,
     "_dstBlendFactor": 771,
     "_spriteFrame": {
-      "__uuid__": "e8a87211-50ba-4f50-9050-774c87b3ba5b"
+      "__uuid__": "e2b455f9-5462-4ddf-9b0f-2cf549bd2805"
     },
     "_type": 0,
     "_sizeMode": 1,
@@ -4051,7 +4057,7 @@
     "_isTrimmedMode": true,
     "_state": 0,
     "_atlas": null,
-    "_id": "46A44uvzdG6Lq4+Oc1KNnV"
+    "_id": "bckUxNofJJQYtYhyaJEubX"
   },
   {
     "__type__": "cc.Canvas",
