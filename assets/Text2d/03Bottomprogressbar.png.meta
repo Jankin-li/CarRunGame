@@ -6,7 +6,7 @@
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
   "subMetas": {
-    "03底部进度条": {
+    "03Bottomprogressbar": {
       "ver": "1.0.4",
       "uuid": "2d5145db-911d-470d-9ac7-2c2502fc1838",
       "rawTextureUuid": "4d099c30-962f-473a-a243-63ec5b0e7de4",
@@ -21,10 +21,10 @@
       "height": 52,
       "rawWidth": 80,
       "rawHeight": 52,
-      "borderTop": 0,
-      "borderBottom": 0,
-      "borderLeft": 0,
-      "borderRight": 0,
+      "borderTop": 42,
+      "borderBottom": 10,
+      "borderLeft": 28,
+      "borderRight": 36,
       "subMetas": {}
     }
   }

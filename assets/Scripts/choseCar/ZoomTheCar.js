@@ -92,11 +92,14 @@ cc.Class({
 
     //发送消息方法
     sentMassageToUI() {
+        //传送数据给dataUIController脚本使用
         cc.director.emit('theProperties', carsData[this.index].maxSpeed,
             carsData[this.index].displacement,
             carsData[this.index].acelerationTime,
             carsData[this.index].nameT,
             carsData[this.index].cost,
         );
+        //传送数据给ShoppingSystemController脚本使用 分别传出 当前车子的Index cost 和name
+        cc.director.emit('toBuyCar', this.index, carsData[this.index].cost, carsData[this.index].nameT);
     }
 });
