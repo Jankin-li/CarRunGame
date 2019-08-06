@@ -7,7 +7,7 @@ cc.Class({
     // onLoad () {},
 
     toTheChoseScense(){
-        cc.director.loadScene('ChoseCar');
+        cc.director.loadScene('ChooseCar');
     },  
     toStratGame(){
         cc.director.loadScene('playScenes');

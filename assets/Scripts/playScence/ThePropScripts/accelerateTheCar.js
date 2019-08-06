@@ -2,19 +2,17 @@ cc.Class({
     extends: cc.Component,
 
     properties: {
-        durinTime: 3,
     },
 
     onCollisionEnter: function (other, self) {
         if (other.node.name == 'car') {
             let move = other.node.getComponent('moving');
-            move.isAccelerate = true;
-            let call = cc.callFunc(() => {
-                move.isAccelerate = false;
+            move._isAccelerated = true;//开启加速
+            let backTheNomal = cc.callFunc(() => {
                 this.node.destroy();
-            });
-            let sq = cc.sequence(cc.delayTime(this.durtinTime), call);
-            other.node.runAction(sq);
+            })
+            let destroyThePop = cc.sequence(cc.delayTime(0.2), backTheNomal);
+            this.node.runAction(destroyThePop);
         }
     },
 });

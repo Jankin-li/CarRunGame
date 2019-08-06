@@ -3,26 +3,30 @@ cc.Class({
 
     properties: {
         runningcamera: cc.Camera,
-        runAllow: true,
+        // runAllow: true,
         step: 150,
-        accelerateSpeed: 5,//加速度
-        isAccelerate: false,
-        isProtected: false,//盾牌保护车子的状态
+        _isAccelerated: false,//加速状态
+        // _isProtected: false,//盾牌保护车子的状态
+        // _isStoped: false,//车子是否被停下
+        _isDecelerated: false,//被减速度
+        _isNormal: true,//正常状态
+        _isHaveBuffe: false,
 
-        accelerateEffect: [cc.Node],//加速特效
-        isProtectedEffct: cc.Node,//盾牌特效
+        // accelerateEffect: [cc.Node],//加速特效
+        // isProtectedEffct: cc.Node,//盾牌特效
 
-        _stoppedTheCar: false,
-        speed: {
-            type: cc.Integer,
-            set(value) {
-                this._speed = value;
-            },
-            get() {
-                return this._speed;
-            }
+        accelerateSpeed: 4,//加速度
+        decelerateSpeed: 4,//减速度
+
+        theLaterTimeOfAccelerate: 4,//加速持续时间
+        theLaterTimeOfDecelerate: 1, //减速持续时间
+        //运行时的速度
+        runingSpeed: {
+            type: Number,
+            default: 5,
         },
-        _speed: 5,
+        //车子本身的速度
+        baseSpeed: 5,
     },
 
     onLoad() {
@@ -37,59 +41,102 @@ cc.Class({
 
     start() {
         this.node.zIndex = 10;
-        this.isProtectedEffct.active = false;
-        this.accelerateEffect[0].active = false;
+        // this.isProtectedEffct.active = false;
+        // this.accelerateEffect[0].active = false;
+        this.runingSpeed = this.baseSpeed;
     },
 
     update() {
-        this.isRunAllow();
+        this.isRunStatus();
+        // this.thEffectOfCar();
+        this.carRun();
     },
 
-    accelerateTheCar() {
-        this.speed += this.accelerateSpeed;
-    },
+    /*
+     赛车总共有 '正常' '加速' '停止' '被保护' '被减速' 五种状态
+     第一优先级 '被保护' 状态针为 _isProtected 不可无视减速
+     第二优先级 '停止'  状态针为 _isStoped
+     第三优先级 '加速'  状态针为 _isAccelerated 不可无视停止
+     第四优先级 '被减速' 状态针为 _isDecelerated
+     第五优先级 '正常' 状态针为 _isNormal
+    */
 
-    isRunAllow() {
-        if (this.runAllow) {
-            //无其他状态时正常跑
-            this.carRun();
-            this._stoppedTheCar = false;
-        } else if (this._stoppedTheCar) {
-            //当前车辆没有护盾时撞上护栏停下车辆
-            this.carStop();
-            this._stoppedTheCar = true;
-        }
-
-        if (this.isProtected) {
-            this.isProtectedEffct.active = true;
-        }else{
-            this.isProtectedEffct.active = false;
-        }
-        if (this.isAccelerate) {
-            //当车辆吃到加速道具时 加速
-            this.accelerateTheCar();
-            this.accelerateEffect[0].active = true;
-            this.isAccelerate = false;
-        }
-        else{
-            
+    //车子运行时的控制
+    isRunStatus() {
+        if (!this._isNormal) {
+            //如果赛车不在被保护状态下撞到栅栏 赛车停止移动 停止后不再调用停止方法
+            // if (!this._isStoped) {
+                this.carStop();
+            // }
+        } else if (this._isDecelerated) {
+            //如果赛车在正常状态下被减速 调用减速方法
+            this.decelerateTheCar();
+        // } else if (this._isAccelerated) {
+            //如果赛车开启加速状态 调用加速方法
+            // this.accelerateTheCar();
+        } else if (this._isNormal) {
+            //无其他状态后恢复正常速度 
+            this.runingSpeed = this.baseSpeed;
         }
     },
 
-    //撞到路障时停止车辆
+    thEffectOfCar() {
+        //对于赛车的特效处理
+        //盾牌特效
+        if (this._isProtected) {
+            // this.isProtectedEffct.active = true;
+        } else {
+            // this.isProtectedEffct.active = false;
+        }
+        //加速特效
+        if (this._isAccelerated && !this._isStoped) {
+            //当车辆吃到加速道具且没有停住时 加速 出现尾焰
+            // this.accelerateEffect[0].active = true;
+        } else {
+            // this.accelerateEffect[0].active = false;
+        }
+    },
+    //减速
+    decelerateTheCar() {
+        this.runingSpeed -= this.decelerateSpeed;
+        this.carBackToNormal(this.theLaterTimeOfDecelerate);
+    },
+    // //加速
+    // accelerateTheCar() {
+    //     if (!this._isHaveBuffe) {
+    //         this.runingSpeed += this.accelerateSpeed;
+    //         this._isHaveBuffe = true;
+    //     }
+    //     this.carBackToNormal(this.theLaterTimeOfAccelerate);
+
+    //     let backTheNomal = cc.callFunc(() => {
+    //         this._isAccelerated = false;
+    //     })
+    //     let backTheNomalSqAction = cc.sequence(cc.delayTime(this.theLaterTimeOfAccelerate), backTheNomal);
+    //     this.node.runAction(backTheNomalSqAction);
+    // },
+    //停止
+    
     carStop() {
-        this.speed = 0;
+        this.runingSpeed = 0;
     },
-
+    //车子正常行驶
     carRun() {
-        this.node.y += this.speed;
-        this.runningcamera.node.y += this.speed;
+        this.node.y += this.runingSpeed;
+        this.runningcamera.node.y += this.runingSpeed;
     },
-
+    //恢复正常速度
+    carBackToNormal(laterTime) {
+        let backTheNomal = cc.callFunc(() => {
+            this.runingSpeed = this.baseSpeed;
+        })
+        let backTheNomalSqAction = cc.sequence(cc.delayTime(laterTime), backTheNomal);
+        this.node.runAction(backTheNomalSqAction);
+    },
     //左右转向
     carTurnLeft() {
         if (this.node.x - this.step > -300) {
-            cc.tween(this.node).stop();
+            // cc.tween(this.node).stop();
             cc.tween(this.node)
                 .to(0.2, { rotation: -15, x: this.node.x - this.step })
                 .to(0.1, { rotation: 0 })
@@ -97,12 +144,11 @@ cc.Class({
         }
 
     },
-
     carTurnRight() {
         if (this.node.x + this.step < 300) {
-            cc.tween(this.node).stop();
+            // cc.tween(this.node).stop();
             cc.tween(this.node)
-                .to(0.1, { rotation: 15, x: this.node.x + this.step })
+                .to(0.2, { rotation: 15, x: this.node.x + this.step })
                 .to(0.1, { rotation: 0 })
                 .start();//利用链式缓动来让车换车道更加平缓
         }
