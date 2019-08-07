@@ -11,22 +11,23 @@ cc.Class({
         _isDecelerated: false,//被减速度
         _isNormal: true,//正常状态
         _isHaveBuffe: false,
-
+        _runLength: 0,//每一个阶段已经行驶的长度
         // accelerateEffect: [cc.Node],//加速特效
         // isProtectedEffct: cc.Node,//盾牌特效
 
-        accelerateSpeed: 4,//加速度
-        decelerateSpeed: 4,//减速度
+        // accelerateSpeed: 4,//加速度
+        // decelerateSpeed: 4,//减速度
 
-        theLaterTimeOfAccelerate: 4,//加速持续时间
-        theLaterTimeOfDecelerate: 1, //减速持续时间
+        // theLaterTimeOfAccelerate: 4,//加速持续时间
+        // theLaterTimeOfDecelerate: 1, //减速持续时间
         //运行时的速度
         runingSpeed: {
-            type: Number,
+            type: cc.Integer,
             default: 5,
         },
         //车子本身的速度
         baseSpeed: 5,
+        runingSpeedBack: 0,
     },
 
     onLoad() {
@@ -44,12 +45,17 @@ cc.Class({
         // this.isProtectedEffct.active = false;
         // this.accelerateEffect[0].active = false;
         this.runingSpeed = this.baseSpeed;
+        this.runingSpeedBack = this.runingSpeed;
     },
 
     update() {
         this.isRunStatus();
         // this.thEffectOfCar();
         this.carRun();
+    },
+
+    sendTheSpeedOfTheProgressBar() {
+        cc.director.emit('speedOfProgressBar', this.runingSpeedBack);
     },
 
     /*
@@ -66,17 +72,23 @@ cc.Class({
         if (!this._isNormal) {
             //如果赛车不在被保护状态下撞到栅栏 赛车停止移动 停止后不再调用停止方法
             // if (!this._isStoped) {
-                this.carStop();
+            this.carStop();
+            this.runingSpeedBack = this.runingSpeed;
+            this.sendTheSpeedOfTheProgressBar();
             // }
         } else if (this._isDecelerated) {
             //如果赛车在正常状态下被减速 调用减速方法
             this.decelerateTheCar();
-        // } else if (this._isAccelerated) {
+            this.runingSpeedBack = this.runingSpeed;
+            this.sendTheSpeedOfTheProgressBar();
+            // } else if (this._isAccelerated) {
             //如果赛车开启加速状态 调用加速方法
             // this.accelerateTheCar();
         } else if (this._isNormal) {
             //无其他状态后恢复正常速度 
             this.runingSpeed = this.baseSpeed;
+            this.runingSpeedBack = this.runingSpeed;
+            this.sendTheSpeedOfTheProgressBar();
         }
     },
 
@@ -116,7 +128,7 @@ cc.Class({
     //     this.node.runAction(backTheNomalSqAction);
     // },
     //停止
-    
+
     carStop() {
         this.runingSpeed = 0;
     },
@@ -154,3 +166,4 @@ cc.Class({
         }
     }
 });
+

@@ -4,28 +4,23 @@ cc.Class({
     properties: {
         //属性条
         maxSpeedBar: cc.ProgressBar,//最高时速
-        displacementBar: cc.ProgressBar,//排量
-        acelerationBar: cc.ProgressBar,//百秒加速时间
+        utilizationRateBar: cc.ProgressBar,//利用率
         //属性值
         maxSpeedLabel: cc.Label,//最高时速
-        displacementLabel: cc.Label,//排量
-        acelerationLabel: cc.Label,//百秒加速时间
+        utilizationRateLabel: cc.Label,//百秒加速时间
         nameLabel: cc.Label,//名字标签
         costNumber: cc.Label,//金额标签
-
     },
-    //更新UI面板上的属性 函数分别传入 最高时速 排量 百米加速时间
-    setTheProperties(maxSpeed, disPlaceMent, aceleration, name, cost) {
-        this.maxSpeedLabel.string = maxSpeed + "km/h";
-        this.displacementLabel.string = disPlaceMent + 'T';
-        this.acelerationLabel.string = aceleration + 's';
-        this.nameLabel.string = name;
-        this.costNumber.string = cost;
+    //更新UI面板上的属性 函数分别传入 最高时速 效率
+    setTheProperties(maxSpeed, utilizationRate, name, cost) {
+        this.maxSpeedLabel.string = maxSpeed + "km/h";//马力
+        this.utilizationRateLabel.string = utilizationRate;//利用率
+        this.nameLabel.string = name;//名称
+        this.costNumber.string = cost;//金钱
 
         //更新属性条
         this.maxSpeedBar.progress = maxSpeed / 500;
-        this.displacementBar.progress = disPlaceMent / 10;
-        this.acelerationBar.progress = aceleration / 10;
+        this.utilizationRateLabel.progress = utilizationRate / 10;
     },
 
     // LIFE-CYCLE CALLBACKS:

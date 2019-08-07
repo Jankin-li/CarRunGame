@@ -6,15 +6,20 @@ cc.Class({
             type: cc.Prefab,
             default: [],
         },
-        // landscapePrefabs: {
-        //     type: cc.Prefab,
-        //     default: [],
-        // },
     },
 
     onCollisionEnter: function (other, self) {
         cc.log("The Car Enter The Road!");
-        this.generateRoad();
+        if (other.node.name == 'plant') {
+            let move = other.node.getComponent('moving');
+            if (move._runLength < 6) {
+                this.generateNomalRoad();
+                move._runLength += 1;
+            }
+            else {
+                this.generateChangeToNextRoad();
+            }
+        }
     },
 
     onCollisionExit: function (other, self) {
@@ -28,8 +33,8 @@ cc.Class({
     },
     // LIFE-CYCLE CALLBACKS:
 
-    generateRoad() {
-        let indexOfRoad = Math.floor(Math.random() * 1000 % this.roadPrefab.length);
+    generateNomalRoad() {
+        let indexOfRoad = Math.floor(Math.random() * 1000 % (this.roadPrefab.length - 1));
         let theRoad = cc.instantiate(this.roadPrefab[indexOfRoad]);
         theRoad.parent = this.node.parent;
         let generatePos = cc.v2(this.node.x, this.node.y + this.node.height);
@@ -38,8 +43,15 @@ cc.Class({
         // this.generateLandscape(theRoad, 3, nowIndex);
     },
 
+    generateChangeToNextRoad() {
+        let theRoad = cc.instantiate(this.roadPrefab[this.roadPrefab.length - 1]);
+        theRoad.parent = this.node.parent;
+        let generatePos = cc.v2(this.node.x, this.node.y + this.node.height);
+        theRoad.position = generatePos;
+        // let nowIndex = 0;
+        // this.generateLandscape(theRoad, 3, nowIndex);
+    },
     // generateLandscape(theRoad, treeLength, nowIndex) {
-
     //     let indexOfTree = Math.floor(Math.random() * 100 % this.landscapePrefabs.length);
     //     let heightOfTree = this._getRandom(0, 540);
     //     let theLandscape = cc.instantiate(this.landscapePrefabs[indexOfTree]);

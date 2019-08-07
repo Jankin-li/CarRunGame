@@ -26,13 +26,13 @@ function readTheChoose() {
 //读取存储的金钱和已经购买的车
 function readTheDataFromFile() {
     coinGot = parseInt(localStorage.getItem('Money'));//获取存在本地文件夹中玩家获得的钱
-    if (isNaN(coinGot) == true || coinGot == null) {
+    if (!coinGot) {
         coinGot = 30000;
     }
+    //获取已经购买的行星数据
     let str = '';
     str = cc.sys.localStorage.getItem('gotCars');//获取当前已经购买的汽车索引对象
-
-    if (isNaN(str) == true || str == null) {
+    if (!str) {
         str = '0';
     }
     var dataStr = str.split("");

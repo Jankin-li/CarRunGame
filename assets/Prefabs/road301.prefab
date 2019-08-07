@@ -17,7 +17,7 @@
     "_parent": null,
     "_children": [],
     "_active": true,
-    "_level": 3,
+    "_level": 1,
     "_components": [
       {
         "__id__": 2
@@ -135,12 +135,20 @@
     "_enabled": true,
     "roadPrefab": [
       {
-        "__uuid__": "052259d6-7b5f-4eb8-b6a9-3c683c0e298b"
+        "__uuid__": "5c6d5caa-7547-4a51-a0c5-e4111f3707b4"
       },
       {
-        "__uuid__": "eb05b6dd-73ef-422f-9367-7879f5846467"
+        "__uuid__": "7711ff0d-2f16-4666-8105-17771e8512c0"
       },
-      null
+      {
+        "__uuid__": "a84eaa46-5846-48c5-9d22-91571a4b3c57"
+      },
+      {
+        "__uuid__": "38434132-9490-492d-b6f2-6a5a4f5b8f2a"
+      },
+      {
+        "__uuid__": "fc2abe9f-043d-499f-8885-dbc6fcdec4a2"
+      }
     ],
     "_id": ""
   },
@@ -150,7 +158,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "5c6d5caa-7547-4a51-a0c5-e4111f3707b4"
     },
     "fileId": "d8g3grazFPQI0/8JRn7DeD",
     "sync": false

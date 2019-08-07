@@ -55,8 +55,7 @@ cc.Class({
     sentMassageToUI() {
         //传送数据给dataUIController脚本使用
         cc.director.emit('theProperties', carsData[this.index].maxSpeed,
-            carsData[this.index].displacement,
-            carsData[this.index].acelerationTime,
+            carsData[this.index].utilizationRate,
             carsData[this.index].nameT,
             carsData[this.index].cost,
         );
@@ -67,26 +66,22 @@ cc.Class({
 
 var carsData = [{
     nameT: '地 球',
-    maxSpeed: 240,
-    displacement: 2.5,
-    acelerationTime: 8.36,
+    maxSpeed: 240,//马力
+    utilizationRate: 0,//利用率
     cost: 3000,
 }, {
     nameT: '火 星',
-    maxSpeed: 280,
-    displacement: 3.0,
-    acelerationTime: 6.47,
+    maxSpeed: 280,//马力
+    utilizationRate: 0,//利用率
     cost: 25000,
 }, {
     nameT: '水 星',
-    maxSpeed: 320,
-    displacement: 4.5,
-    acelerationTime: 4.49,
+    maxSpeed: 320,//马力
+    utilizationRate: 0,//利用率
     cost: 47000,
 }, {
     nameT: '木 星',
-    maxSpeed: 380,
-    displacement: 6.0,
-    acelerationTime: 3.34,
+    maxSpeed: 380,//马力
+    utilizationRate: 0,//利用率
     cost: 62000,
 }];//json对象数组 用于存储对应的行星的数据

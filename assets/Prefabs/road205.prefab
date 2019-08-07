@@ -17,7 +17,7 @@
     "_parent": null,
     "_children": [],
     "_active": true,
-    "_level": 3,
+    "_level": 1,
     "_components": [
       {
         "__id__": 2
@@ -126,22 +126,16 @@
     "_id": ""
   },
   {
-    "__type__": "81c2eaCuNJNcog2iZdR+nXB",
+    "__type__": "260c5H3UmFIzrEBBvsj7LXz",
     "_name": "",
     "_objFlags": 0,
     "node": {
       "__id__": 1
     },
     "_enabled": true,
-    "roadPrefab": [
-      {
-        "__uuid__": "052259d6-7b5f-4eb8-b6a9-3c683c0e298b"
-      },
-      {
-        "__uuid__": "eb05b6dd-73ef-422f-9367-7879f5846467"
-      },
-      null
-    ],
+    "nextRoad": {
+      "__uuid__": "5c6d5caa-7547-4a51-a0c5-e4111f3707b4"
+    },
     "_id": ""
   },
   {
@@ -150,7 +144,7 @@
       "__id__": 1
     },
     "asset": {
-      "__id__": 0
+      "__uuid__": "018a212d-bf63-4f33-98bc-0714a9f71f88"
     },
     "fileId": "d8g3grazFPQI0/8JRn7DeD",
     "sync": false
