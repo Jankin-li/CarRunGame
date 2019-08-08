@@ -85,3 +85,4 @@ var carsData = [{
     utilizationRate: 0,//利用率
     cost: 62000,
 }];//json对象数组 用于存储对应的行星的数据
+export {carsData};

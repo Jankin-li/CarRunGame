@@ -3,7 +3,7 @@ let chooseData = [{}];
 let coinData = 0;
 //存储选择数据
 function storgeTheChoose(carIndex) {
-    localStorage.setItem('SelectedCar', carIndex);//存入本地数据选择的车辆的索引
+    localStorage.setItem('Selected', carIndex);//存入本地数据选择的车辆的索引
 }
 //存储购买的车和剩下的金钱
 function storgeTheDataOfPlay(coin, carIndex) {

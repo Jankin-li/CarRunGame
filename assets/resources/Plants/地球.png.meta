@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "4e7d1136-f3bd-4cb8-acf5-0204ae1a3bd4",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "地球": {
+      "ver": "1.0.4",
+      "uuid": "305f03b5-7539-4be3-8edc-45295154e896",
+      "rawTextureUuid": "4e7d1136-f3bd-4cb8-acf5-0204ae1a3bd4",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": -9,
+      "offsetY": 32.5,
+      "trimX": 149,
+      "trimY": 126,
+      "width": 404,
+      "height": 683,
+      "rawWidth": 720,
+      "rawHeight": 1000,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

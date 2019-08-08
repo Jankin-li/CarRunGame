@@ -8,7 +8,8 @@ cc.Class({
         timerLabel: cc.Label,//计时器时间显示
         coinLabel: cc.Label,//玩家已经拥有的金钱数量
         theItemOfPlayer: cc.Node,
-        _speedOfTheItem: 0,
+        theLengthOfRoad: cc.Node,
+        _indexOfTheItem: 0,
     },
 
     pauseTheGame() {
@@ -29,7 +30,9 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
-        cc.director.on('speedOfProgressBar', (value) => { this._speedOfTheItem = value / 20; });//注册底部进度条的速度控制监听
+        cc.director.on('speedOfProgressBar', (value) => {
+            this._indexOfTheItem = value * this.theLengthOfRoad.width;
+        });//注册底部进度条的速度控制监听
         cc.director.on('coinGet', (value) => {
             this.coinLabel.string = value;
         })
@@ -46,7 +49,7 @@ cc.Class({
 
     update(dt) {
         this.setTheTimer();
-        this.theItemOfPlayer.x += this._speedOfTheItem;
+        this.theItemOfPlayer.x = this._indexOfTheItem;
     },
 
     setTheTimer() {
@@ -60,7 +63,7 @@ cc.Class({
         // let ml = Math.floor((this.playingTime % 1000) / 100);
         let sc = Math.floor((this.playingTime / 1000) % 60);
         let mi = Math.floor((this.playingTime / 1000 / 60) % 60);
-        let info = mi + "\'" + sc ;
+        let info = mi + "\'" + sc;
         this.timerLabel.string = info;
     },
 

@@ -1,3 +1,4 @@
+
 cc.Class({
     extends: cc.Component,
 
@@ -6,6 +7,7 @@ cc.Class({
             type: cc.Prefab,
             default: [],
         },
+
     },
 
     onCollisionEnter: function (other, self) {
@@ -24,12 +26,14 @@ cc.Class({
 
     onCollisionExit: function (other, self) {
         console.log('on collision exit');
-        let callBack = cc.callFunc(() => {
-            this.node.destroy();
-        });
-        let lateTime = cc.delayTime(1);
-        let actionSq = cc.sequence(lateTime, callBack);
-        this.node.runAction(actionSq);
+        if (other.node.name == 'plant') {
+            let callBack = cc.callFunc(() => {
+                this.node.destroy();
+            });
+            let lateTime = cc.delayTime(1);
+            let actionSq = cc.sequence(lateTime, callBack);
+            this.node.runAction(actionSq);
+        }
     },
     // LIFE-CYCLE CALLBACKS:
 
@@ -39,8 +43,6 @@ cc.Class({
         theRoad.parent = this.node.parent;
         let generatePos = cc.v2(this.node.x, this.node.y + this.node.height);
         theRoad.position = generatePos;
-        // let nowIndex = 0;
-        // this.generateLandscape(theRoad, 3, nowIndex);
     },
 
     generateChangeToNextRoad() {
@@ -48,8 +50,6 @@ cc.Class({
         theRoad.parent = this.node.parent;
         let generatePos = cc.v2(this.node.x, this.node.y + this.node.height);
         theRoad.position = generatePos;
-        // let nowIndex = 0;
-        // this.generateLandscape(theRoad, 3, nowIndex);
     },
     // generateLandscape(theRoad, treeLength, nowIndex) {
     //     let indexOfTree = Math.floor(Math.random() * 100 % this.landscapePrefabs.length);
@@ -73,14 +73,10 @@ cc.Class({
     _getRandom(min, max) {  //参数min为随机数最小值 max为随机数最大值 得到的随机数范围为[min,max]
         return Math.floor(Math.random() * (max + 1 - min) + min);
     },
-
+    start() {
+    },
     onLoad() {
     },
-
-    start() {
-
-    },
-
     onDestroy() {
         cc.log('I\'m destroy!')
     }
