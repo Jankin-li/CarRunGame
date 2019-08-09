@@ -1,13 +1,9 @@
 cc.Class({
     extends: cc.Component,
-
-    properties: {
-    },
-
     onCollisionEnter: function (other, self) {
         if (other.node.name == 'plant') {
             let move = other.node.getComponent('moving');
-            move._isAccelerated = true;//开启加速
+            move._theStateSec = 3;
             let backTheNomal = cc.callFunc(() => {
                 this.node.destroy();
             })

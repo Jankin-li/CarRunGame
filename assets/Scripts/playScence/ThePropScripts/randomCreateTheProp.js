@@ -1,4 +1,3 @@
-import { readTheDataFromFile } from "../../dataController";
 
 /*
     该脚本挂载在道路上 this.node 为道路
@@ -24,9 +23,8 @@ cc.Class({
         prop.parent = this.node;
         let posIndex = this._getRandom(0, posArr.length);//取一个随机索引 该索引代表一个位置      
         let posProp = posArr[posIndex];//通过随机索引来获取位置 
-        posArr.splice(posIndex, 1);//将坐标移出去
-        posArr.sort();
         prop.position = posProp;//定位  
+        posArr.splice(posIndex, 1);//将坐标移出去
     },
 
     countPos(col, row) {

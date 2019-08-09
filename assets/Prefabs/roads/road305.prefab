@@ -869,7 +869,6 @@
       "__id__": 6
     },
     "_enabled": true,
-    "durtinTime": 1,
     "_id": ""
   },
   {
@@ -1529,7 +1528,6 @@
       "__id__": 26
     },
     "_enabled": true,
-    "durtinTime": 1,
     "_id": ""
   },
   {
@@ -2189,7 +2187,6 @@
       "__id__": 46
     },
     "_enabled": true,
-    "durtinTime": 1,
     "_id": ""
   },
   {
@@ -2261,7 +2258,7 @@
     },
     "_enabled": true,
     "nextRoad": {
-      "__uuid__": "fc2abe9f-043d-499f-8885-dbc6fcdec4a2"
+      "__uuid__": "28f35fc4-e93e-4aff-833b-3dd6970c6621"
     },
     "_id": ""
   },

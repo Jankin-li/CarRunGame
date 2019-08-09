@@ -3,20 +3,13 @@ cc.Class({
     onCollisionEnter: function (other, self) {
         if (other.node.name == 'plant') {
             let move = other.node.getComponent('moving');
-            if (move._isProtected) {
-                //如果撒赛车有护盾就摧毁栅栏
-                this.node.destroy();
-            } else {
-                move._isNormal = false;
-            }
-
+            move._theStateSec = 1;
         }
     },
     onCollisionExit: function (other, self) {
         if (other.node.name == 'plant') {
             let move = other.node.getComponent('moving');
-            move._isNormal = true;
-            move._isStoped = false;
+            move._theStateSec = 0;
         }
     },
 });

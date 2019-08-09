@@ -6,7 +6,7 @@
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
   "subMetas": {
-    "防护罩": {
+    "shelterEffect": {
       "ver": "1.0.4",
       "uuid": "cefd02a1-09fe-4b7e-9222-c7bc9f6b36a5",
       "rawTextureUuid": "e99f0567-8271-46c2-bd10-ebb7a83c8292",

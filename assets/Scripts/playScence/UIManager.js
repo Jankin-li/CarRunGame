@@ -55,9 +55,6 @@ cc.Class({
     setTheTimer() {
         let nowDate = new Date();
         let f = nowDate.getTime();
-        // if(this.isBack){
-        //     this.duringTime = f
-        // }
         this.playingTime += f - this.startTime;
         this.startTime = new Date().getTime();
         // let ml = Math.floor((this.playingTime % 1000) / 100);
@@ -66,9 +63,5 @@ cc.Class({
         let info = mi + "\'" + sc;
         this.timerLabel.string = info;
     },
-
-    distanceExchange(nowPos) {
-
-    }
 });
 

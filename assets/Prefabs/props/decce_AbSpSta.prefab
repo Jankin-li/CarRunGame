@@ -105,7 +105,17 @@
     "_id": ""
   },
   {
-    "__type__": "cc.BoxCollider",
+    "__type__": "acc6eFn86BOGIyD32+568hQ",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "_id": ""
+  },
+  {
+    "__type__": "cc.PolygonCollider",
     "_name": "",
     "_objFlags": 0,
     "node": {
@@ -118,22 +128,43 @@
       "x": 0,
       "y": 0
     },
-    "_size": {
-      "__type__": "cc.Size",
-      "width": 101,
-      "height": 101
-    },
-    "_id": ""
-  },
-  {
-    "__type__": "acc6eFn86BOGIyD32+568hQ",
-    "_name": "",
-    "_objFlags": 0,
-    "node": {
-      "__id__": 1
-    },
-    "_enabled": true,
-    "durtinTime": 1,
+    "points": [
+      {
+        "__type__": "cc.Vec2",
+        "x": -40,
+        "y": -48
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 30,
+        "y": -48
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 47,
+        "y": -5
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": 50,
+        "y": 50
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -1,
+        "y": 38
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -20,
+        "y": 8
+      },
+      {
+        "__type__": "cc.Vec2",
+        "x": -45,
+        "y": -2
+      }
+    ],
     "_id": ""
   },
   {

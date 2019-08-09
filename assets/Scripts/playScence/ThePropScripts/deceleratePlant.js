@@ -1,26 +1,14 @@
 cc.Class({
     extends: cc.Component,
-
-    properties: {
-        durtinTime: 1,
-    },
     onCollisionEnter: function (other, self) {
-        if (other.node.name == "plant") {
+        if (other.node.name == 'plant') {
             let move = other.node.getComponent('moving');
-            move._isDecelerated = true;
+            move._theStateSec = 2;
         }
     },
-    onCollisionExit(other, self) {
-        if (other.node.name == "plant") {
-            let move = other.node.getComponent('moving');
-            move._isDecelerated = false;
-        }
-    },
+
     // onLoad () {},
 
-    start() {
-
-    },
 
     // update (dt) {},
 });

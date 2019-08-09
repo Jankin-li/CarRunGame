@@ -8,21 +8,13 @@ cc.Class({
     onCollisionEnter: function (other, self) {
         if (other.node.name == "plant") {
             let move = other.node.getComponent('moving');
-            move._isProtected = true;
+            move._theStateFir = 1;
             let call = cc.callFunc(() => {
-                move._isProtected = false;
                 this.node.destroy();
             });
-            let sq = cc.sequence(cc.delayTime(this.durtinTime), call);
+            let sq = cc.sequence(cc.delayTime(0.2), call);
             other.node.runAction(sq);
         }
     },
 
-    // onLoad () {},
-
-    start() {
-
-    },
-
-    // update (dt) {},
 });
