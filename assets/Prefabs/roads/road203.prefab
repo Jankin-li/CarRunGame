@@ -34,10 +34,13 @@
       },
       {
         "__id__": 9
+      },
+      {
+        "__id__": 10
       }
     ],
     "_prefab": {
-      "__id__": 10
+      "__id__": 11
     },
     "_opacity": 255,
     "_color": {
@@ -276,7 +279,7 @@
         "__uuid__": "cde9b8cf-91b7-453a-b3dc-cf2dd5fd65f1"
       },
       {
-        "__uuid__": "eb05b6dd-73ef-422f-9367-7879f5846467"
+        "__uuid__": "ebf19366-842a-40a5-a907-ba4d9822eb6a"
       },
       {
         "__uuid__": "7c5c13f5-fe66-46de-9a5e-f46c5e36d728"
@@ -288,6 +291,19 @@
         "__uuid__": "018a212d-bf63-4f33-98bc-0714a9f71f88"
       }
     ],
+    "_id": ""
+  },
+  {
+    "__type__": "67ec1qqRc5A06d6A3kguJZf",
+    "_name": "",
+    "_objFlags": 0,
+    "node": {
+      "__id__": 1
+    },
+    "_enabled": true,
+    "theSpacialProp": {
+      "__uuid__": "d743aef3-fae8-4615-b540-66fb4fcf6a4e"
+    },
     "_id": ""
   },
   {

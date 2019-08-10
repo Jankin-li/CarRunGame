@@ -1,6 +1,3 @@
-//金币存储 选择数据存储( speed index)
-let chooseData = [{}];
-let coinData = 0;
 //存储选择数据
 function storgeTheChoose(carIndex) {
     localStorage.setItem('Selected', carIndex);//存入本地数据选择的车辆的索引
@@ -12,6 +9,9 @@ function storgeTheDataOfPlay(coin, carIndex) {
     arr = arr.join('');//数组转换成字符串方便存入本地文件中
     ///存储数据
     localStorage.setItem('gotCars', arr);//将购买信息存入本地文件方便后面使用
+}
+function storgeTheCoin(coin) {
+    localStorage.setItem('Money', coin);//将购买车辆后金币余额存入本地数据中
 }
 
 //读取选择的行星的数据
@@ -48,4 +48,4 @@ let arr = [];
 let coinGot = 0;
 
 ///导出方法
-export { readTheDataFromFile, readTheChoose, storgeTheChoose, storgeTheDataOfPlay };
+export { readTheDataFromFile, readTheChoose, storgeTheChoose, storgeTheDataOfPlay, storgeTheCoin };
