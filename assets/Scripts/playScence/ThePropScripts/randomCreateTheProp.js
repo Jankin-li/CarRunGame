@@ -21,7 +21,8 @@ cc.Class({
         let propIndex = Math.floor(Math.random() * 1000 % (this.thePropPrefabs.length));
         let prop = cc.instantiate(this.thePropPrefabs[propIndex]);
         prop.parent = this.node;
-        let posIndex = this._getRandom(0, posArr.length);//取一个随机索引 该索引代表一个位置      
+        let posIndex = Math.floor(Math.random() * 1000 % (posArr.length));//取一个随机索引 该索引代表一个位置
+        cc.log("creatAprop:", posIndex, posArr.length);
         let posProp = posArr[posIndex];//通过随机索引来获取位置 
         prop.position = posProp;//定位  
         posArr.splice(posIndex, 1);//将坐标移出去
@@ -55,7 +56,5 @@ cc.Class({
             this.creatAprop();
         }
     },
-    _getRandom(min, max) {  //参数min为随机数最小值 max为随机数最大值 得到的随机数范围为[min,max]
-        return Math.floor(Math.random() * (max + 1 - min) + min);
-    },
+
 });

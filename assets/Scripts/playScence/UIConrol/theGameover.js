@@ -27,14 +27,19 @@ cc.Class({
         }
     },
 
-    gameWin(winR) {
+    gameWin(winR, coin, time) {
         if (winR) {
             this.theGameOverPanel.active = true;
-            this.theSuccessPanel.active = true;
+            this.thefailedPanel.active = false;
+            this.GotCoin = coin;
+            this.GotTime = time;
             this.scheduleOnce(() => {
                 cc.game.pause();
             }, 0.001);
         }
+    },
+    onDestroy() {
+        cc.director.targetOff(this);
     },
     // update (dt) {},
 });

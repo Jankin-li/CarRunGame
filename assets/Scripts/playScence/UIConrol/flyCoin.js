@@ -18,16 +18,14 @@ cc.Class({
         let moveTo = cc.moveTo(2, endPos);
         flycoin.runAction(cc.sequence(moveTo, cc.delayTime(1), cc.callFunc(() => {
             flycoin.destroy();
-        })))
+        })));
     },
-    onLoad() {
+    start() {
         cc.director.on('coinGetOne', (value, pos) => {
             this.instantiateTheFlyCoin(pos);
-        });
+        }, this);
     },
     onDestroy() {
-        cc.director.off('coinGetOne', (value, pos) => {
-            this.instantiateTheFlyCoin(pos);
-        });
+        cc.director.targetOff(this);
     }
 });

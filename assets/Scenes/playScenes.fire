@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.1445474896640884,
-      "y": 0.1445474896640884,
+      "x": 0.1894645708137997,
+      "y": 0.1894645708137997,
       "z": 1
     },
     "_quat": {
@@ -897,7 +897,7 @@
       "__id__": 18
     },
     "accelerateSpeed": 10,
-    "decelerateSpeed": 4,
+    "decelerateSpeed": 0.2,
     "theLaterTimeOfProte": 4,
     "theLaterTimeOfAccelerate": 4,
     "theLaterTimeOfDecelerate": 1,

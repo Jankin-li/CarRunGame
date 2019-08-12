@@ -17,12 +17,10 @@ cc.Class({
     onLoad() {
         cc.director.on('moveTheIce', (valueY, x) => {
             this._theProgress = cc.v2(x, valueY);
-        });
+        }, this);
     },
     onDestroy() {
-        cc.director.off('moveTheIce', (valueY, x) => {
-            this._theProgress = cc.v2(x, valueY);
-        });
+        cc.director.targetOff(this);
     },
     start() {
     },

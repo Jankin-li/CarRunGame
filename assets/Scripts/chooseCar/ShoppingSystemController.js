@@ -119,7 +119,7 @@ cc.Class({
         cc.director.on('toBuyCar', this.thisCarIsBuy, this);
     },
     onDestroy() {
-        cc.director.off('toBuyCar', this.thisCarIsBuy, this);
+        cc.director.targetOff(this);
     },
     start() {
         // cc.sys.localStorage.clear();

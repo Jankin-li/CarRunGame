@@ -1,6 +1,7 @@
 let dataControl = require('/cocosStudy/CarGame/assets/Scripts/dataController');
 let datareader = dataControl.readTheDataFromFile();
 let playerCoin = datareader.coin;
+let theTime;
 cc.Class({
     extends: cc.Component,
 
@@ -62,6 +63,9 @@ cc.Class({
     update(dt) {
         this.setTheTimer();
         this.theItemOfPlayer.x = this._indexOfTheItem;
+        if (this._indexOfTheItem >= 0.9) {
+            cc.director.emit('coinAndTime', playerCoin, theTime);
+        }
     },
 
     setTheTimer() {
@@ -69,22 +73,14 @@ cc.Class({
         let f = nowDate.getTime();
         this.playingTime += f - this.startTime;
         this.startTime = new Date().getTime();
-        let theTime = 8 * 60 * 1000 - this.playingTime;//8分钟倒计时
+        theTime = 8 * 60 * 1000 - this.playingTime;//8分钟倒计时
         let sc = Math.floor((theTime / 1000) % 60);//秒
         let mi = Math.floor((theTime / 1000 / 60) % 60);//分钟
         let info = mi + "\'" + sc;
         this.timerLabel.string = info;
     },
     onDestroy() {
-        cc.director.off('coinGetOne', (value) => {//金币增加事件
-            this.node.runAction(cc.sequence(cc.delayTime(2.4), cc.callFunc(() => {
-                playerCoin += value;//吃到金币时加钱
-                this.coinLabel.string = playerCoin;
-            })))
-        }, this);
-        cc.director.off('speedOfProgressBar', (value) => {
-            this._indexOfTheItem = value * this.theLengthOfRoad.width;
-        }, this);
+        cc.director.targetOff(this);
     },
 });
 

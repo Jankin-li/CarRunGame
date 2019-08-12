@@ -1,4 +1,4 @@
-let totalLength = 1280 * 7 * 4;
+let totalLength = 1280 * 6 * 4;
 let thisBili = 0;
 
 let turnStartPosx = 0;
@@ -48,7 +48,6 @@ cc.Class({
         },
         //车子本身的速度
         baseSpeed: 5,
-
     },
 
     onLoad() {
@@ -123,7 +122,7 @@ cc.Class({
     decelerateTheCar() {
         if (!this._isHaveDEBuffe && this._theStateSec != nodeEnumSeconde.isStopped) {
             this._isHaveDEBuffe = true;
-            this.runingSpeed -= this.decelerateSpeed;
+            this.runingSpeed = this.decelerateSpeed;
         }
     },
 
@@ -135,7 +134,8 @@ cc.Class({
             cc.tween(this.node)
                 .delay(this.theLaterTimeOfAccelerate)
                 .call(() => {
-                    this._theStateSec = nodeEnumSeconde.isRunning;//回归正常状态
+                    if (this._theStateSec != nodeEnumSeconde.isStopped)
+                        this._theStateSec = nodeEnumSeconde.isRunning;//回归正常状态
                     this._isHaveACBuffe = false;
                 }).start();
         }

@@ -1,0 +1,31 @@
+{
+  "ver": "2.2.0",
+  "uuid": "a7a36e82-e162-4f89-af33-10cfaf119d05",
+  "type": "sprite",
+  "wrapMode": "clamp",
+  "filterMode": "bilinear",
+  "premultiplyAlpha": false,
+  "subMetas": {
+    "BlackHole_newAnimation_17": {
+      "ver": "1.0.4",
+      "uuid": "534bc1f0-4d70-44f3-8f46-a70e4d736b42",
+      "rawTextureUuid": "a7a36e82-e162-4f89-af33-10cfaf119d05",
+      "trimType": "auto",
+      "trimThreshold": 1,
+      "rotated": false,
+      "offsetX": 4.5,
+      "offsetY": -1,
+      "trimX": 215,
+      "trimY": 66,
+      "width": 763,
+      "height": 362,
+      "rawWidth": 1184,
+      "rawHeight": 492,
+      "borderTop": 0,
+      "borderBottom": 0,
+      "borderLeft": 0,
+      "borderRight": 0,
+      "subMetas": {}
+    }
+  }
+}

@@ -15,12 +15,10 @@ cc.Class({
         this.node.zIndex = 3;
         cc.director.on('moveTheIce', (value, x) => {
             this._theProgress = value;
-        });
+        },this);
     },
     onDestroy() {
-        cc.director.off('moveTheIce', (value, x) => {
-            this._theProgress = value;
-        });
+        cc.director.targetOff(this);
     },
 
     creatTheIcele() {
