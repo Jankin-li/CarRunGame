@@ -19,7 +19,11 @@ cc.Class({
             this._theProgress = cc.v2(x, valueY);
         });
     },
-
+    onDestroy() {
+        cc.director.off('moveTheIce', (valueY, x) => {
+            this._theProgress = cc.v2(x, valueY);
+        });
+    },
     start() {
     },
     // //控制冰锥朝向地球

@@ -7,12 +7,11 @@ cc.Class({
 
     properties: {
         coinLabel: cc.Label,//当前玩家金钱数量
-        unlockButton: cc.Button,//解锁按钮
+        unlockButton: cc.Node,//解锁按钮
+        buyThePus: cc.Button,
         selectButton: cc.Button,//确认按钮
-
+        falseLabeOfBuy: cc.Label,
         conformPanel: cc.Node,//确认面板
-        carCostLabel: cc.Label,//花费显示
-        promptFrame: cc.Node, //金钱不足提示
         conformButton: cc.Button,//确认按钮
         cancelButton: cc.Button,//取消按钮
         conformSp: {
@@ -28,7 +27,7 @@ cc.Class({
         plantName = carName;
         this.data = dataControl.readTheDataFromFile();//跨脚本调用读取方法
         this.coinLabel.string = this.data.coin;//更新当前金币数量
-        this.unlockButton.node.off(cc.Node.EventType.TOUCH_END);//先停止所有触摸的点击事件
+        this.buyThePus.node.off(cc.Node.EventType.TOUCH_END);//先停止所有触摸的点击事件
         //遍历已经购买的推进器数组
         for (let i = 0; i < this.data.arrgot.length; i++) {
             if (this.data.arrgot[i] == plantIndex) {
@@ -37,9 +36,10 @@ cc.Class({
                 return;
             }
             if (this.data.arrgot[i] != plantIndex) {
-                this.unlockButton.node.active = true;
+                this.unlockButton.active = true;
+                this.buyThePus.node.active = true;
                 //当点击解锁按钮时弹出购买确认框
-                this.unlockButton.node.on(cc.Node.EventType.TOUCH_END, () => {
+                this.buyThePus.node.on(cc.Node.EventType.TOUCH_END, () => {
                     this.toVerify();
                 });
             }
@@ -48,7 +48,8 @@ cc.Class({
 
     //选择按钮 相应处理
     theButtonChangeToSelect() {
-        this.unlockButton.node.active = false;//隐藏解锁按钮
+        this.unlockButton.active = false;//隐藏解锁按钮
+        this.buyThePus.node.active = false;
         let selectedData = dataControl.readTheChoose();
         if (plantIndex != selectedData) {
             let spritee = this.selectButton.node.getComponent(cc.Sprite);
@@ -69,8 +70,6 @@ cc.Class({
     toVerify() {
         //弹出确认框 注册点击事件
         this.conformPanel.active = true;
-        //更新面板显示的数据
-        this.carCostLabel.string = plantCost;
         //确认按钮注册
         this.conformButton.node.on(cc.Node.EventType.TOUCH_END, () => {
             this.toBuyCar();//调用购买逻辑
@@ -84,22 +83,33 @@ cc.Class({
     toBuyCar() {
         //判断金钱是否足够
         if (this.data.coin >= plantCost) {
-            // cc.log(this.data.coin);
             //金钱足够的情况下
             let coinChanged = this.data.coin - plantCost;//减去金币
             //加入脚本调用 存储数据
             dataControl.storgeTheDataOfPlay(coinChanged, plantIndex);
             // this.succedFame.active = true;//开启购买成功的面板
             this.theButtonChangeToSelect();
-            // this.promptFrame.getComponent
-            this.closeTheFame();
+            this.closeTheFame('Purchase success!', cc.Color.YELLOW, 0);
         } else {//金钱不足时 金钱不足的弹框
-            this.closeTheFame();
+            this.closeTheFame('Your money is not enough!', cc.Color.RED, 1);
         }
     },
-    closeTheFame() {
-        this.promptFrame.active = false;//关闭弹窗
-        this.conformPanel.active = false;//关闭购买界面
+    closeTheFame(FOrT, colos, suc) {
+        this.falseLabeOfBuy.node.active = true;
+        this.falseLabeOfBuy.node.color = colos;
+        this.falseLabeOfBuy.getComponent(cc.Animation).play();
+        this.falseLabeOfBuy.string = FOrT;
+        if (suc == 0) {
+            this.falseLabeOfBuy.scheduleOnce(() => {
+                this.falseLabeOfBuy.node.active = false;
+                this.conformPanel.active = false;//关闭购买界面
+            }, 1)
+        } else if (suc == 1) {
+            this.falseLabeOfBuy.scheduleOnce(() => {
+                this.falseLabeOfBuy.node.active = false;
+            }, 1)
+        }
+
     },
 
     // LIFE-CYCLE CALLBACKS:
@@ -108,11 +118,13 @@ cc.Class({
         //监听器监听数据变化事件 用于变化购买按钮
         cc.director.on('toBuyCar', this.thisCarIsBuy, this);
     },
-
+    onDestroy() {
+        cc.director.off('toBuyCar', this.thisCarIsBuy, this);
+    },
     start() {
         // cc.sys.localStorage.clear();
-        // this.succedFame.active = false;
-        // this.filedFame.active = false;
+        this.falseLabeOfBuy.node.active = false;
+        this.buyThePus.active = false;
         this.conformPanel.active = false;
         this.data = dataControl.readTheDataFromFile();
     },

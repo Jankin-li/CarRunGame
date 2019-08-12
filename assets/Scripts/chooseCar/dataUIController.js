@@ -14,7 +14,7 @@ cc.Class({
     //更新UI面板上的属性 函数分别传入 最高时速 效率
     setTheProperties(maxSpeed, utilizationRate, name, cost) {
         this.maxSpeedLabel.string = maxSpeed + "km/h";//马力
-        this.utilizationRateLabel.string = utilizationRate;//利用率
+        this.utilizationRateLabel.string = utilizationRate + '%'//利用率
         this.nameLabel.string = name;//名称
         this.costNumber.string = cost;//金钱
 
@@ -28,5 +28,8 @@ cc.Class({
         cc.director.on('theProperties', this.setTheProperties, this);
     },
 
+    onDestroy() {
+        cc.director.off('theProperties', this.setTheProperties, this);
+    },
     // update (dt) {},
 });

@@ -17,6 +17,11 @@ cc.Class({
             this._theProgress = value;
         });
     },
+    onDestroy() {
+        cc.director.off('moveTheIce', (value, x) => {
+            this._theProgress = value;
+        });
+    },
 
     creatTheIcele() {
         let theIcicle = cc.instantiate(this.theBullet);
@@ -55,6 +60,7 @@ cc.Class({
             })))
         }
     },
+
     start() {
 
     },

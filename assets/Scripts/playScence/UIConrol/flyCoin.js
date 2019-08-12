@@ -20,10 +20,14 @@ cc.Class({
             flycoin.destroy();
         })))
     },
-
     onLoad() {
         cc.director.on('coinGetOne', (value, pos) => {
             this.instantiateTheFlyCoin(pos);
         });
     },
+    onDestroy() {
+        cc.director.off('coinGetOne', (value, pos) => {
+            this.instantiateTheFlyCoin(pos);
+        });
+    }
 });

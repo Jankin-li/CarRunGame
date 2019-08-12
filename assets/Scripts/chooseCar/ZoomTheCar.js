@@ -65,22 +65,22 @@ cc.Class({
 });
 
 var carsData = [{
-    nameT: '地 球',
+    nameT: 'Civil Propulsion',
     maxSpeed: 240,//马力
     utilizationRate: 0,//利用率
     cost: 3000,
 }, {
-    nameT: '火 星',
+    nameT: 'Industrial Thruster',
     maxSpeed: 280,//马力
     utilizationRate: 0,//利用率
     cost: 25000,
 }, {
-    nameT: '水 星',
+    nameT: 'Military Thruster',
     maxSpeed: 320,//马力
     utilizationRate: 0,//利用率
     cost: 47000,
 }, {
-    nameT: '木 星',
+    nameT: ' Ultimate Thruster',
     maxSpeed: 380,//马力
     utilizationRate: 0,//利用率
     cost: 62000,

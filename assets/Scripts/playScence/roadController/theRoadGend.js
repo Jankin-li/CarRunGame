@@ -37,7 +37,7 @@ cc.Class({
     // LIFE-CYCLE CALLBACKS:
 
     generateNomalRoad() {
-        let indexOfRoad = Math.floor(Math.random() * 1000 % (this.roadPrefab.length));
+        let indexOfRoad = Math.floor(Math.random() * 1000 % (this.roadPrefab.length - 1));
         if (indexOfRoad == this.roadPrefab.length) {
             this.generateNomalRoad();
             return;
