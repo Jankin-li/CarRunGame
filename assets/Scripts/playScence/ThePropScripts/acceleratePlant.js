@@ -4,7 +4,8 @@ cc.Class({
         if (other.node.name == 'plant') {
             let move = other.node.getComponent('moving');
             move._theStateSec = 3;
-            cc.director.emit('accelerate', true);
+            let a = 1;
+            cc.director.emit('accelerate', a);
             let backTheNomal = cc.callFunc(() => {
                 this.node.destroy();
             })

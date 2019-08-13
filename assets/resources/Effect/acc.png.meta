@@ -6,7 +6,7 @@
   "filterMode": "bilinear",
   "premultiplyAlpha": false,
   "subMetas": {
-    "氢气": {
+    "acc": {
       "ver": "1.0.4",
       "uuid": "db2b7d3b-a2e1-4f00-a236-73e838496459",
       "rawTextureUuid": "b4decdfb-7a13-4fa1-ac8c-b3a4174e62c8",

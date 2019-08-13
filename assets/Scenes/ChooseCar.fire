@@ -41,8 +41,8 @@
     },
     "_scale": {
       "__type__": "cc.Vec3",
-      "x": 0.4184230999051204,
-      "y": 0.4184230999051204,
+      "x": 0.5459113881574633,
+      "y": 0.5459113881574633,
       "z": 1
     },
     "_quat": {
@@ -2452,8 +2452,8 @@
     ],
     "_N$interactable": true,
     "_N$enableAutoGrayEffect": false,
-    "_N$transition": 0,
-    "transition": 0,
+    "_N$transition": 3,
+    "transition": 3,
     "_N$normalColor": {
       "__type__": "cc.Color",
       "r": 214,

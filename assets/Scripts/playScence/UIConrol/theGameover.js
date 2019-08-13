@@ -12,7 +12,7 @@ cc.Class({
 
     onLoad() {
         cc.director.once('GameOver', this.gameOver, this);//游戏失败
-        cc.director.once('winTheGame', this.gameWin, this)//游戏胜利,
+        cc.director.once('winTheGame2', this.gameWin, this)//游戏胜利,
     },
     start() {
         this.theGameOverPanel.active = false;
@@ -31,11 +31,15 @@ cc.Class({
         if (winR) {
             this.theGameOverPanel.active = true;
             this.thefailedPanel.active = false;
-            this.GotCoin = coin;
-            this.GotTime = time;
+            this.GotCoin.string = coin;
+            time = 8 * 60 * 1000 - time;//用时
+            let sc = Math.floor((time / 1000) % 60);//秒
+            let mi = Math.floor((time / 1000 / 60) % 60);//分钟
+            let info = mi + "\'" + sc;
+            this.GotTime.string = info;
             this.scheduleOnce(() => {
                 cc.game.pause();
-            }, 0.001);
+            }, 0.01);
         }
     },
     onDestroy() {

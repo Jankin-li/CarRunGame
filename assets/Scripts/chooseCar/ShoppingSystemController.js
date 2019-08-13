@@ -104,12 +104,7 @@ cc.Class({
                 this.falseLabeOfBuy.node.active = false;
                 this.conformPanel.active = false;//关闭购买界面
             }, 1)
-        } else if (suc == 1) {
-            this.falseLabeOfBuy.scheduleOnce(() => {
-                this.falseLabeOfBuy.node.active = false;
-            }, 1)
         }
-
     },
 
     // LIFE-CYCLE CALLBACKS:

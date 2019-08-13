@@ -56,6 +56,9 @@ cc.Class({
         cc.director.on('speedOfProgressBar', (value) => {
             this._indexOfTheItem = value * this.theLengthOfRoad.width;
         }, this);//注册底部进度条的速度控制监听
+        cc.director.on('winTheGame', () => {
+            cc.director.emit('winTheGame2', true, playerCoin, theTime)
+        }, this)
         //获取开始时间,用于计时器
         this.startTime = new Date().getTime();
     },
@@ -63,9 +66,6 @@ cc.Class({
     update(dt) {
         this.setTheTimer();
         this.theItemOfPlayer.x = this._indexOfTheItem;
-        if (this._indexOfTheItem >= 0.9) {
-            cc.director.emit('coinAndTime', playerCoin, theTime);
-        }
     },
 
     setTheTimer() {

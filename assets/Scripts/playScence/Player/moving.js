@@ -104,16 +104,19 @@ cc.Class({
                 }
             }; break;
             case nodeEnumFirst.isProtected: {
+                cc.tween(this.node).stop();
+                this._theStateSec = nodeEnumSeconde.isRunning;
                 switch (this._theStateSec) {//保护状态下 只能进入加速和正常状态
                     case nodeEnumSeconde.isRunning: this.carBackToNormal();; break;
                     case nodeEnumSeconde.isAccelerated: this.accelerateTheCar(); break;
                 }
                 this.isProtectedEffct.active = true;
-                let backTheNomalSqAction = cc.sequence(cc.delayTime(this.theLaterTimeOfProte), cc.callFunc(() => {
-                    this._theStateFir = nodeEnumFirst.isNormal;
-                    this.isProtectedEffct.active = false;
-                }));
-                this.node.runAction(backTheNomalSqAction);
+                cc.tween(this.node)
+                    .delay(this.theLaterTimeOfProte)
+                    .call(() => {
+                        this._theStateFir = nodeEnumFirst.isNormal;
+                        this.isProtectedEffct.active = false;
+                    }).start();
             }; break;
         }
     },
@@ -134,8 +137,11 @@ cc.Class({
             cc.tween(this.node)
                 .delay(this.theLaterTimeOfAccelerate)
                 .call(() => {
-                    if (this._theStateSec != nodeEnumSeconde.isStopped)
+                    if (this._theStateSec != nodeEnumSeconde.isStopped) {
                         this._theStateSec = nodeEnumSeconde.isRunning;//回归正常状态
+                        let a = 0;
+                        cc.director.emit('accelerate', a);
+                    }
                     this._isHaveACBuffe = false;
                 }).start();
         }

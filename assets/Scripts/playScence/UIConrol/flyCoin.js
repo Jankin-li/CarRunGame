@@ -15,7 +15,7 @@ cc.Class({
         flycoin.parent = this.node;
         flycoin.position = startPos;
         let endPos = cc.v2(99, 572);
-        let moveTo = cc.moveTo(2, endPos);
+        let moveTo = cc.moveTo(1, endPos);
         flycoin.runAction(cc.sequence(moveTo, cc.delayTime(1), cc.callFunc(() => {
             flycoin.destroy();
         })));
