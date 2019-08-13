@@ -107,6 +107,9 @@ cc.Class({
         }
     },
 
+    backToMenu() {
+        cc.director.loadScene('manueScene');
+    },
     // LIFE-CYCLE CALLBACKS:
 
     onLoad() {
