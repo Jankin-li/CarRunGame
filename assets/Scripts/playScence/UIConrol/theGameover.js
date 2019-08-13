@@ -1,3 +1,4 @@
+let dataControl = require('/cocosStudy/CarGame/assets/Scripts/dataController');
 cc.Class({
     extends: cc.Component,
 
@@ -31,6 +32,7 @@ cc.Class({
         if (winR) {
             this.theGameOverPanel.active = true;
             this.thefailedPanel.active = false;
+            dataControl.storgeTheCoin(coin);
             this.GotCoin.string = coin;
             time = 8 * 60 * 1000 - time;//用时
             let sc = Math.floor((time / 1000) % 60);//秒

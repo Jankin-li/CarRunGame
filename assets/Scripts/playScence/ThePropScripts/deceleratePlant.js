@@ -3,23 +3,17 @@ cc.Class({
     onCollisionEnter: function (other, self) {
         if (other.node.name == 'plant') {
             let move = other.node.getComponent('moving');
-            if (move._theStateSec != 3)
-                move._theStateSec = 2;
+            move.toDecelerate();
         }
     },
-    onCollisionStay: function (other, self) {
-        if (other.node.name == 'plant') {
-            let move = other.node.getComponent('moving');
-            if (move._theStateSec != 3)
-                move._theStateSec = 2;
-        }
-    },
+
     onCollisionExit: function (other, self) {
         if (other.node.name == 'plant') {
             let move = other.node.getComponent('moving');
-            if (move._theStateSec != 3)
-                move._theStateSec = 0;
-            move._isHaveDEBuffe = false;
+            if (!move._isAccelerate && !move._isStop) {
+                move.carBackToNormal();
+            }
+            move._isDecelerate = false;
         }
     },
 });

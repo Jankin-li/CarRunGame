@@ -67,22 +67,22 @@ cc.Class({
 var carsData = [{
     nameT: 'Civil Propulsion',
     maxSpeed: 240,//马力
-    utilizationRate: 0,//利用率
+    utilizationRate: 20,//利用率
     cost: 3000,
 }, {
     nameT: 'Industrial Thruster',
     maxSpeed: 280,//马力
-    utilizationRate: 0,//利用率
+    utilizationRate: 30,//利用率
     cost: 25000,
 }, {
     nameT: 'Military Thruster',
     maxSpeed: 320,//马力
-    utilizationRate: 0,//利用率
+    utilizationRate: 55,//利用率
     cost: 47000,
 }, {
     nameT: ' Ultimate Thruster',
     maxSpeed: 380,//马力
-    utilizationRate: 0,//利用率
+    utilizationRate: 95,//利用率
     cost: 62000,
 }];//json对象数组 用于存储对应的行星的数据
-export {carsData};
+export { carsData };

@@ -52,6 +52,7 @@ cc.Class({
     start() {
         this.playingTime = 0;
         this.pausePanel.active = false;
+        playerCoin = datareader.coin;
         this.coinLabel.string = playerCoin;
         cc.director.on('speedOfProgressBar', (value) => {
             this._indexOfTheItem = value * this.theLengthOfRoad.width;
@@ -74,6 +75,9 @@ cc.Class({
         this.playingTime += f - this.startTime;
         this.startTime = new Date().getTime();
         theTime = 8 * 60 * 1000 - this.playingTime;//8分钟倒计时
+        if (theTime < 0) {
+            cc.director.emit('GameOver', true);//游戏失败
+        }
         let sc = Math.floor((theTime / 1000) % 60);//秒
         let mi = Math.floor((theTime / 1000 / 60) % 60);//分钟
         let info = mi + "\'" + sc;

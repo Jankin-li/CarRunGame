@@ -20,7 +20,7 @@ cc.Class({
 
         //更新属性条
         this.maxSpeedBar.progress = maxSpeed / 500;
-        this.utilizationRateLabel.progress = utilizationRate / 10;
+        this.utilizationRateLabel.progress = utilizationRate / 100;
     },
 
     // LIFE-CYCLE CALLBACKS:

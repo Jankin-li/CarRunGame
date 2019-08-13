@@ -3,13 +3,15 @@ cc.Class({
     onCollisionEnter: function (other, self) {
         if (other.node.name == 'plant') {
             let move = other.node.getComponent('moving');
-            move._theStateSec = 1;
+            move.toStop();
         }
     },
     onCollisionExit: function (other, self) {
         if (other.node.name == 'plant') {
             let move = other.node.getComponent('moving');
-            move._theStateSec = 0;
+            if (!move._isDecelerate)
+                move.carBackToNormal();
+            move._isStop = false;
         }
     },
 });

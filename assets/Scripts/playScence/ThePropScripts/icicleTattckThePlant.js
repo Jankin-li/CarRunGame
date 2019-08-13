@@ -10,7 +10,6 @@ cc.Class({
 
     onCollisionEnter: function (other, self) {
         if (other.node.name == 'plant') {
-            cc.director.emit('GameOver', true);
             other.node.destroy();
         }
     },
