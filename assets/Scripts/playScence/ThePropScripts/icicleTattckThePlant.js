@@ -23,7 +23,7 @@ cc.Class({
     },
     start() {
     },
-    // //控制冰锥朝向地球
+    // // //控制冰锥朝向地球
     // lookAtObj(target) {
     //     let comVec = cc.v2(0, 1);    // 竖直向上的方向向量
     //     let subvv = this.node.position.sub(target);
